@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/13 12:17:32 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/13 12:36:25 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,8 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		i = 1;
-		while (argv[i])
-			printf("%s\n", argv[i++]);
 		stack_a = ft_get_stack(&argv[1]);
+		ft_lstprint(stack_a);
 	}
 	//ft_check_int(argv, 0);
 }
