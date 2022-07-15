@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/13 12:14:07 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/15 13:35:49 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ typedef struct s_list
 
 /*-----------	Utils	-----------*/
 char	**ft_split(char const *s, char c);
-size_t	ft_atoi(const char *str);
+int		ft_atoi_check(const char *str);
 
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+
+void	ft_free_lst(t_list **lst);
+void	ft_free(char **ptr);
 
 #endif
