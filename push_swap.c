@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/15 13:49:04 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:28:45 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 //Crear estructura en la libreria que contenga los stacks para pasarlo 
 //como parámetro a funciones posteriores. En la gestión de errores si no
 //va a estar complicado liberar el split de args y el stack.
-//
-//Falta chequear si dos elementos son iguales. Añadirlo al atoi tuneado.
 
 void	ft_lstprint(t_list *stack)
 {
@@ -50,6 +48,34 @@ t_list	*ft_get_stack(char **args)
 	return (stack);
 }
 
+void	ft_check_dupl(t_list *stack)
+{
+	t_list	*aux;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	aux = stack;
+	while (stack)
+	{
+		aux = stack;
+		j = i;
+		while (aux)
+		{
+			if (aux->content == stack->content && i != j)
+			{
+				write(2, "Error\n", 6);
+				exit(0);
+			}
+			aux = aux->next;
+			j++;
+		}
+		stack = stack->next;
+		i++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	char	**sp_arg;
@@ -65,12 +91,14 @@ int	main(int argc, char **argv)
 		sp_arg = ft_split(argv[1], ' ');
 		stack_a = ft_get_stack(sp_arg);
 		ft_free(sp_arg);
+		ft_check_dupl(stack_a);
 		ft_lstprint(stack_a);
 		ft_free_lst(&stack_a);
 	}
 	else
 	{
 		stack_a = ft_get_stack(&argv[1]);
+		ft_check_dupl(stack_a);
 		ft_lstprint(stack_a);
 		ft_free_lst(&stack_a);
 	}
