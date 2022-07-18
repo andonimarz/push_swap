@@ -6,16 +6,13 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/18 16:28:45 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:27:25 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* ---------------- shittttt ------------------*/
-//Crear estructura en la libreria que contenga los stacks para pasarlo 
-//como parámetro a funciones posteriores. En la gestión de errores si no
-//va a estar complicado liberar el split de args y el stack.
 
 void	ft_lstprint(t_list *stack)
 {
@@ -28,7 +25,7 @@ void	ft_lstprint(t_list *stack)
 
 /* ---------------- end_shittttt ------------------*/
 
-t_list	*ft_get_stack(char **args)
+t_list	*ft_get_stack(char **args, t_control *control)
 {
 	int		i;
 	int		aux;
@@ -40,7 +37,7 @@ t_list	*ft_get_stack(char **args)
 	stack = NULL;
 	while (args[i])
 	{
-		aux = ft_atoi_check(args[i]);
+		aux = ft_atoi_check(args[i], &control->error);
 		node = ft_lstnew(aux);
 		ft_lstadd_back(&stack, node);
 		i++;
@@ -48,15 +45,17 @@ t_list	*ft_get_stack(char **args)
 	return (stack);
 }
 
-void	ft_check_dupl(t_list *stack)
+void	ft_check_dupl(t_control *control)
 {
 	t_list	*aux;
+	t_list	*stack;
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-	aux = stack;
+	aux = control->stack_a;
+	stack = control->stack_a;
 	while (stack)
 	{
 		aux = stack;
@@ -65,8 +64,7 @@ void	ft_check_dupl(t_list *stack)
 		{
 			if (aux->content == stack->content && i != j)
 			{
-				write(2, "Error\n", 6);
-				exit(0);
+				control->error = 1;
 			}
 			aux = aux->next;
 			j++;
@@ -76,30 +74,38 @@ void	ft_check_dupl(t_list *stack)
 	}
 }
 
+static void	ft_check_error(t_control *control)
+{
+	if (control->error == 1)
+	{
+		ft_free_lst(&control->stack_a);
+		write(2, "Error\n", 6);
+		exit(0);
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	char	**sp_arg;
-	t_list	*stack_a;
-	int		i;
+	char		**sp_arg;
+	t_control	control;
 
-	i = 0;
-	stack_a = NULL;
+	control.stack_a = NULL;
+	control.error = 0;
 	if (argc == 1)
 		exit(0);
 	if (argc == 2)
 	{
 		sp_arg = ft_split(argv[1], ' ');
-		stack_a = ft_get_stack(sp_arg);
+		control.stack_a = ft_get_stack(sp_arg, &control);
 		ft_free(sp_arg);
-		ft_check_dupl(stack_a);
-		ft_lstprint(stack_a);
-		ft_free_lst(&stack_a);
+		ft_check_dupl(&control);
 	}
 	else
 	{
-		stack_a = ft_get_stack(&argv[1]);
-		ft_check_dupl(stack_a);
-		ft_lstprint(stack_a);
-		ft_free_lst(&stack_a);
+		control.stack_a = ft_get_stack(&argv[1], &control);
+		ft_check_dupl(&control);
 	}
+	ft_check_error(&control);
+	ft_lstprint(control.stack_a);
+	ft_free_lst(&control.stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/18 16:24:15 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:01:57 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,16 @@ typedef struct s_list
 	struct s_list	*previous;
 }					t_list;
 
+typedef struct s_control
+{
+	struct s_list	*stack_a;
+	struct s_list	*stack_b;
+	int				error;
+}					t_control;
+
 /*-----------	Utils	-----------*/
 char	**ft_split(char const *s, char c);
-int		ft_atoi_check(const char *str);
+int		ft_atoi_check(const char *str, int *error);
 
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);

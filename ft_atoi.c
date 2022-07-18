@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:54:42 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/18 16:25:54 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:07:51 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-static void	ft_check_int(long num)
-{
-	if (num < INT_MIN || num > INT_MAX)
-	{
-		write(2, "Error\n", 6);
-		exit(0);
-	}	
-}
-
-int	ft_atoi_check(const char *str)
+int	ft_atoi_check(const char *str, int *error)
 {
 	int		sign;
 	int		i;
@@ -38,12 +29,10 @@ int	ft_atoi_check(const char *str)
 	while (str[i])
 	{
 		if (str[i] < 48 || str[i] > 57)
-		{
-			write(2, "Error\n", 6);
-			exit(0);
-		}
+			*error = 1;
 		num = num * 10 + (str[i++] - 48);
 	}
-	ft_check_int(num * sign);
+	if (num < INT_MIN || num > INT_MAX)
+		*error = 1;
 	return (num * sign);
 }
