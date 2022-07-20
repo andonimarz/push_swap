@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_exit.c                                       :+:      :+:    :+:   */
+/*   utils_atoi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 11:00:41 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/19 14:45:34 by amarzana         ###   ########.fr       */
+/*   Created: 2022/04/01 10:54:42 by amarzana          #+#    #+#             */
+/*   Updated: 2022/07/19 14:49:48 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <limits.h>
 
-void	ft_free_lst(t_list **lst)
+int	ft_atoi_check(const char *str, int *error)
 {
-	t_list	*aux;
+	int		sign;
+	int		i;
+	long	num;
 
-	while (*lst)
-	{
-		aux = (*lst)->next;
-		free(*lst);
-		*lst = aux;
-	}
-}
-
-void	ft_free(char **ptr)
-{
-	int	i;
-
+	sign = 1;
 	i = 0;
-	while (ptr[i])
-		free(ptr[i++]);
-	free(ptr);
-}
-
-void	ft_check_error(t_control *control)
-{
-	if (control->error == 1)
+	num = 0;
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign = -sign;
+	while (str[i])
 	{
-		ft_free_lst(&control->stack_a);
-		write(2, "Error\n", 6);
-		exit(0);
+		if (str[i] < 48 || str[i] > 57)
+			*error = 1;
+		num = num * 10 + (str[i++] - 48);
 	}
+	if (num < INT_MIN || num > INT_MAX)
+		*error = 1;
+	return (num * sign);
 }

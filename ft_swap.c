@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_exit.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 11:00:41 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/19 14:45:34 by amarzana         ###   ########.fr       */
+/*   Created: 2022/07/19 14:54:15 by amarzana          #+#    #+#             */
+/*   Updated: 2022/07/19 16:34:46 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_lst(t_list **lst)
+void	ft_swap(t_list *first)
 {
-	t_list	*aux;
+	int		aux;
+	t_list	*second;
 
-	while (*lst)
-	{
-		aux = (*lst)->next;
-		free(*lst);
-		*lst = aux;
-	}
+	second = first->next;
+	aux = second->content;
+	second->content = first->content;
+	first->content = aux;
 }
 
-void	ft_free(char **ptr)
-{
-	int	i;
-
-	i = 0;
-	while (ptr[i])
-		free(ptr[i++]);
-	free(ptr);
-}
-
-void	ft_check_error(t_control *control)
-{
-	if (control->error == 1)
-	{
-		ft_free_lst(&control->stack_a);
-		write(2, "Error\n", 6);
-		exit(0);
-	}
-}
+void	ft_swap()

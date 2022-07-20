@@ -6,13 +6,13 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/18 17:27:25 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:22:50 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* ---------------- shittttt ------------------*/
+/* ------------------ shittttt --------------------*/
 
 void	ft_lstprint(t_list *stack)
 {
@@ -74,16 +74,6 @@ void	ft_check_dupl(t_control *control)
 	}
 }
 
-static void	ft_check_error(t_control *control)
-{
-	if (control->error == 1)
-	{
-		ft_free_lst(&control->stack_a);
-		write(2, "Error\n", 6);
-		exit(0);
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	char		**sp_arg;
@@ -106,6 +96,9 @@ int	main(int argc, char **argv)
 		ft_check_dupl(&control);
 	}
 	ft_check_error(&control);
+	ft_lstprint(control.stack_a);
+	ft_swap(control.stack_a);
+	write(1, "\n", 1);
 	ft_lstprint(control.stack_a);
 	ft_free_lst(&control.stack_a);
 }
