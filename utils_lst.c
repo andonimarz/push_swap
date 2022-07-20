@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:37:46 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/19 15:24:56 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:08:26 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,17 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		new->next = *lst;
 		*lst = new;
 	}
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

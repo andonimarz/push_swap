@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/19 15:26:37 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:40:09 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_atoi_check(const char *str, int *error);
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
 
 /*-----------	utils_exit	-----------*/
 void	ft_free_lst(t_list **lst);
@@ -46,6 +47,14 @@ void	ft_free(char **ptr);
 void	ft_check_error(t_control *control);
 
 /*------------		moves	-----------*/
-void	ft_swap(t_list *stack);
+void	ft_swap(t_control *control, char c);
+void	ft_swap_job(t_list *stack);
+
+void	ft_rotate(t_control *control, char c);
+void	ft_rotate_job(t_list *stack);
+
+void	ft_rrotate(t_control *control, char c);
+
+void	ft_push(t_control *control, char c);
 
 #endif
