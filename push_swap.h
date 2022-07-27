@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/20 17:40:09 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/27 10:22:03 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,14 @@ int		ft_lstsize(t_list *lst);
 /*-----------	utils_exit	-----------*/
 void	ft_free_lst(t_list **lst);
 void	ft_free(char **ptr);
+
+/*----------	ft_checks	-----------*/
 void	ft_check_error(t_control *control);
+void	ft_check_dupl(t_control *control);
+void	ft_check_order(t_control *control);
+
+/*----------	ft_ords		-----------*/
+void	ft_ord_three(t_control *control);
 
 /*------------		moves	-----------*/
 void	ft_swap(t_control *control, char c);

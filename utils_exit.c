@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:00:41 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/19 14:45:34 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/27 10:02:22 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,4 @@ void	ft_free(char **ptr)
 	free(ptr);
 }
 
-void	ft_check_error(t_control *control)
-{
-	if (control->error == 1)
-	{
-		ft_free_lst(&control->stack_a);
-		write(2, "Error\n", 6);
-		exit(0);
-	}
-}
+
