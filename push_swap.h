@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/27 10:22:03 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/27 12:15:43 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_check_order(t_control *control);
 
 /*----------	ft_ords		-----------*/
 void	ft_ord_three(t_control *control);
+void	ft_ord_five(t_control *ctr);
 
 /*------------		moves	-----------*/
 void	ft_swap(t_control *control, char c);
@@ -63,5 +64,8 @@ void	ft_rotate_job(t_list *stack);
 void	ft_rrotate(t_control *control, char c);
 
 void	ft_push(t_control *control, char c);
+
+/*------------BORRRARARRARARARAR-----*/
+void	ft_ctrprint(t_control *control);
 
 #endif

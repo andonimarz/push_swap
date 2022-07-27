@@ -6,13 +6,13 @@
 #    By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 13:17:29 by amarzana          #+#    #+#              #
-#    Updated: 2022/07/27 10:20:38 by amarzana         ###   ########.fr        #
+#    Updated: 2022/07/27 12:28:27 by amarzana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra
 OBJ = $(SRC:.c=.o)
 
 SRC = 	mov_push_rrotate.c		\
@@ -24,6 +24,7 @@ SRC = 	mov_push_rrotate.c		\
 		ft_checks.c				\
 		ord_three.c				\
 		push_swap.c				\
+		ft_prints.c
 
 all: $(NAME)
 
