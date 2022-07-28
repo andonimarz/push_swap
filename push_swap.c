@@ -14,6 +14,7 @@
 
 /* ------------------ shittttt --------------------*/
 //Faltan checks en las funciones de movimiento
+//En ft_push_min contar el numero de rotates por si son menos rrotates
 /* ---------------- end_shittttt ------------------*/
 
 t_list	*ft_get_stack(char **args, t_control *control)
