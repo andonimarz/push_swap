@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/27 12:15:43 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/29 10:16:01 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ typedef struct s_list
 typedef struct s_control
 {
 	struct s_list	*stack_a;
+	int				a_size;
 	struct s_list	*stack_b;
+	int				b_size;
 	int				error;
 }					t_control;
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ord_three.c                                        :+:      :+:    :+:   */
+/*   ord_three_five.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 08:50:18 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/27 12:20:36 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:17:33 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,24 @@ void	ft_ord_three(t_control *ctr)
 	}
 }
 
+static void	ft_push_min_job(int mov_num, t_control *control)
+{
+	if (mov_num < 3)
+		while (mov_num--)
+			ft_rotate(control, 'a');
+	else
+	{
+		if (mov_num == control->a_size - 2)
+		{
+			ft_rrotate(control, 'a');
+			ft_rrotate(control, 'a');
+		}
+		if (mov_num == control->a_size - 1)
+			ft_rrotate(control, 'a');
+	}
+	ft_push(control, 'b');
+}
+
 static void	ft_push_min(t_control *control)
 {
 	t_list	*aux;
@@ -48,9 +66,7 @@ static void	ft_push_min(t_control *control)
 	int		check;
 	int		mov_num;
 
-	aux = control->stack_a;
 	stack = control->stack_a;
-	check = 0;
 	mov_num = 0;
 	while (stack)
 	{
@@ -64,9 +80,7 @@ static void	ft_push_min(t_control *control)
 		}
 		if (check == 0)
 		{
-			while (mov_num--)
-				ft_rotate(control, 'a');
-			ft_push(control, 'a');
+			ft_push_min_job(mov_num, control);
 			break ;
 		}
 		stack = stack->next;
@@ -78,7 +92,9 @@ void	ft_ord_five(t_control *ctr)
 {
 	ft_push_min(ctr);
 	ft_push_min(ctr);
-	ft_ord_three(ctr);
-	ft_push(ctr, 'b');
-	ft_push(ctr, 'b');
+	ft_check_order(ctr);
+	if (ctr->error == 0)
+		ft_ord_three(ctr);
+	ft_push(ctr, 'a');
+	ft_push(ctr, 'a');
 }

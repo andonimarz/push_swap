@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_rrotate.c                                  :+:      :+:    :+:   */
+/*   mov_push_rrotate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:56:03 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/20 17:40:03 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/29 10:55:39 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@ void	ft_push(t_control *control, char c)
 {
 	t_list	*aux;
 
-	if (c == 'a')
+	if (c == 'b')
 	{
-		write(1, "pa\n", 4);
+		write(1, "pb\n", 3);
 		aux = control->stack_a;
 		control->stack_a = control->stack_a->next;
 		ft_lstadd_front(&control->stack_b, aux);
+		control->a_size--;
+		control->b_size++;
 	}
-	else if (c == 'b')
+	else if (c == 'a')
 	{
-		write(1, "pb\n", 4);
+		write(1, "pa\n", 3);
 		aux = control->stack_b;
 		control->stack_b = control->stack_b->next;
 		ft_lstadd_front(&control->stack_a, aux);
+		control->a_size++;
+		control->b_size--;
 	}
 }
 
