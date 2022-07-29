@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 10:02:11 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/27 13:17:13 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:42:17 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_check_dupl(t_control *control)
 	}
 }
 
-void	ft_check_order(t_control *control)
+int	ft_check_order(int work_type, t_control *control)
 {
 	int		i;
 	t_list	*stack;
@@ -71,6 +71,9 @@ void	ft_check_order(t_control *control)
 			i++;
 		stack = stack->next;
 	}
-	if (i == 0 && control->error == 0)
+	if (work_type == 0 && i == 0 && control->error == 0)
 		control->error = 2;
+	if (work_type == 1 && i == 0)
+		return (0);
+	return (1);
 }

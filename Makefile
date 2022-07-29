@@ -6,7 +6,7 @@
 #    By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 13:17:29 by amarzana          #+#    #+#              #
-#    Updated: 2022/07/29 08:31:27 by amarzana         ###   ########.fr        #
+#    Updated: 2022/07/29 11:45:52 by amarzana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = 	mov_push_rrotate.c		\
 		ft_checks.c				\
 		ord_three_five.c		\
 		push_swap.c				\
+		ord_any.c				\
 		ft_prints.c
 
 all: $(NAME)

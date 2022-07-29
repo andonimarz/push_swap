@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/29 10:16:01 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:43:55 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
-	struct s_list	*previous;
 }					t_list;
 
 typedef struct s_control
@@ -50,11 +49,12 @@ void	ft_free(char **ptr);
 /*----------	ft_checks	-----------*/
 void	ft_check_error(t_control *control);
 void	ft_check_dupl(t_control *control);
-void	ft_check_order(t_control *control);
+int		ft_check_order(int work_type, t_control *control);
 
 /*----------	ft_ords		-----------*/
 void	ft_ord_three(t_control *control);
 void	ft_ord_five(t_control *ctr);
+void	ft_ord_any(t_control *control);
 
 /*------------		moves	-----------*/
 void	ft_swap(t_control *control, char c);
@@ -67,7 +67,7 @@ void	ft_rrotate(t_control *control, char c);
 
 void	ft_push(t_control *control, char c);
 
-/*------------BORRRARARRARARARAR-----*/
+/*----------BORRRARARRARARARAR---------*/
 void	ft_ctrprint(t_control *control);
 
 #endif

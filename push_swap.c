@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/29 11:19:15 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:37:35 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	ft_checks(t_control *control)
 		else if (i > 0)
 		{
 			ft_check_dupl(control);
-			ft_check_order(control);
+			ft_check_order(0, control);
 		}
 	}
 	ft_check_error(control);
@@ -59,6 +59,8 @@ static void	ft_push_swap(t_control *control)
 		ft_ord_three(control);
 	else if (control->a_size == 5)
 		ft_ord_five(control);
+	else
+		ft_ord_any(control);
 }
 
 static void	ft_init_values(t_control *control)

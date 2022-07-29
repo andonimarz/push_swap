@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 08:50:18 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/29 11:17:33 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:40:02 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,7 @@ void	ft_ord_five(t_control *ctr)
 {
 	ft_push_min(ctr);
 	ft_push_min(ctr);
-	ft_check_order(ctr);
-	if (ctr->error == 0)
+	if (ft_check_order(1, ctr))
 		ft_ord_three(ctr);
 	ft_push(ctr, 'a');
 	ft_push(ctr, 'a');
