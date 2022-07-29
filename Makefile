@@ -6,7 +6,7 @@
 #    By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 13:17:29 by amarzana          #+#    #+#              #
-#    Updated: 2022/07/27 12:28:27 by amarzana         ###   ########.fr        #
+#    Updated: 2022/07/29 08:31:27 by amarzana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC = 	mov_push_rrotate.c		\
 		utils_lst.c				\
 		utils_split.c			\
 		ft_checks.c				\
-		ord_three.c				\
+		ord_three_five.c		\
 		push_swap.c				\
 		ft_prints.c
 

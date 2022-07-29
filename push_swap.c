@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/27 13:16:44 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/07/29 08:32:37 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ t_list	*ft_get_stack(char **args, t_control *control)
 	return (stack);
 }
 
-static void	ft_checks(int argc, t_control *control)
+static void	ft_checks(t_control *control)
 {
-	if (argc > 1)
+	int		i;
+
+	i = ft_lstsize(control->stack_a);
+	if (i > 0)
 	{
 		ft_check_dupl(control);
 		ft_check_order(control);
@@ -45,11 +48,14 @@ static void	ft_checks(int argc, t_control *control)
 	ft_check_error(control);
 }
 
-static void	ft_push_swap(int argc, t_control *control)
+static void	ft_push_swap(t_control *control)
 {
-	if (argc == 4)
+	int		i;
+
+	i = ft_lstsize(control->stack_a);
+	if (i == 3)
 		ft_ord_three(control);
-	else
+	else if (i == 5)
 		ft_ord_five(control);
 }
 
@@ -74,9 +80,9 @@ int	main(int argc, char **argv)
 		else
 			control.stack_a = ft_get_stack(&argv[1], &control);
 	}
-	ft_checks(argc, &control);
-	ft_push_swap(argc, &control);
-	ft_ctrprint(&control);
+	ft_checks(&control);
+	ft_push_swap(&control);
+	//ft_ctrprint(&control);
 	ft_free_lst(&control.stack_a);
 	ft_free_lst(&control.stack_b);
 }
