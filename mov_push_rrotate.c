@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:56:03 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/29 10:55:39 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/01 12:04:10 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,25 @@ void	ft_push(t_control *control, char c)
 	}
 }
 
-static void	ft_rrotate_job(t_list *stack)
+/* static void	ft_rrotate_job(t_list *stack)
 {
 	int	i;
 
 	i = ft_lstsize(stack);
 	while (--i > 0)
 		ft_rotate_job(stack);
+} */
+
+static void	ft_rrotate_job(t_list **stack)
+{
+	t_list	*aux;
+
+	aux = *stack;
+	while (aux->next->next != NULL)
+		aux = aux->next;
+	aux->next->next = *stack;
+	*stack = aux->next;
+	aux->next = NULL;
 }
 
 void	ft_rrotate(t_control *control, char c)
@@ -50,17 +62,17 @@ void	ft_rrotate(t_control *control, char c)
 	if (c == 'a')
 	{
 		write(1, "rra\n", 4);
-		ft_rrotate_job(control->stack_a);
+		ft_rrotate_job(&control->stack_a);
 	}
 	else if (c == 'b')
 	{
 		write(1, "rrb\n", 4);
-		ft_rrotate_job(control->stack_b);
+		ft_rrotate_job(&control->stack_b);
 	}
 	else if (c == 'r')
 	{
 		write(1, "rrr\n", 4);
-		ft_rrotate_job(control->stack_a);
-		ft_rrotate_job(control->stack_b);
+		ft_rrotate_job(&control->stack_a);
+		ft_rrotate_job(&control->stack_b);
 	}
 }

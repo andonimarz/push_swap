@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/29 11:43:55 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/01 12:18:30 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 
@@ -27,9 +28,12 @@ typedef struct s_control
 {
 	struct s_list	*stack_a;
 	int				a_size;
+	int				a_moves;
 	struct s_list	*stack_b;
 	int				b_size;
+	int				b_moves;
 	int				error;
+	int				index_count;
 }					t_control;
 
 /*-----------	utils_libft	-----------*/
@@ -46,6 +50,9 @@ int		ft_lstsize(t_list *lst);
 void	ft_free_lst(t_list **lst);
 void	ft_free(char **ptr);
 
+/*----------	ft_index	-----------*/
+void	ft_index(t_control *control);
+
 /*----------	ft_checks	-----------*/
 void	ft_check_error(t_control *control);
 void	ft_check_dupl(t_control *control);
@@ -58,13 +65,8 @@ void	ft_ord_any(t_control *control);
 
 /*------------		moves	-----------*/
 void	ft_swap(t_control *control, char c);
-void	ft_swap_job(t_list *stack);
-
 void	ft_rotate(t_control *control, char c);
-void	ft_rotate_job(t_list *stack);
-
 void	ft_rrotate(t_control *control, char c);
-
 void	ft_push(t_control *control, char c);
 
 /*----------BORRRARARRARARARAR---------*/
