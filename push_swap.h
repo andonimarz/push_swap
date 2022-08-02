@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/01 12:18:30 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/02 12:48:26 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
+	int				moves;
 	struct s_list	*next;
 }					t_list;
 
@@ -49,6 +56,11 @@ int		ft_lstsize(t_list *lst);
 /*-----------	utils_exit	-----------*/
 void	ft_free_lst(t_list **lst);
 void	ft_free(char **ptr);
+
+/*-----------	utils_count	-----------*/
+void	ft_optimize_moves(t_list *stack);
+void	ft_count_a_moves(t_control *control);
+void	ft_count_b_moves(t_control *control);
 
 /*----------	ft_index	-----------*/
 void	ft_index(t_control *control);

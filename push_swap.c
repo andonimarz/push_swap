@@ -6,15 +6,18 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/01 12:45:19 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/02 12:50:27 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* ------------------ shittttt --------------------*/
-//Falta el algoritmo para el resto de casos
-/* ---------------- end_shittttt ------------------*/
+/**************SHITTTTTTTTTTTT***************
+ * 
+ * Falta la función que hace los movimientos antes del push
+ * Falta borrar las variables de movimiento después de cada push
+ * 
+**************SHITTTTTTTTTTTT***************/
 
 t_list	*ft_get_stack(char **args, t_control *control)
 {
@@ -95,9 +98,9 @@ int	main(int argc, char **argv)
 			control.stack_a = ft_get_stack(&argv[1], &control);
 	}
 	ft_checks(&control);
-	//ft_index(&control);
+	ft_index(&control);
 	ft_push_swap(&control);
-	//ft_ctrprint(&control);
+	ft_ctrprint(&control);
 	ft_free_lst(&control.stack_a);
 	ft_free_lst(&control.stack_b);
 }

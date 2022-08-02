@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:27:43 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/01 10:19:56 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/02 12:56:52 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ static void	ft_lstprint(t_list *stack)
 {
 	while (stack)
 	{
-		printf("%d -> %d\n", stack->index, stack->content);
+		printf("%d	->	%d,	", stack->index, stack->content);
+		printf("%d ra,	%d rb,	%d rr	", stack->ra, stack->rb, stack->rr);
+		printf("%d rra,	%d rrb,	%d rrr ", stack->rra, stack->rrb, stack->rrr);
+		printf("Total moves -> %d\n", stack->moves);
 		stack = stack->next;
 	}
 }

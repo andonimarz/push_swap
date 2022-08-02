@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:56:03 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/01 12:04:10 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:10:32 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,6 @@ void	ft_push(t_control *control, char c)
 		control->b_size--;
 	}
 }
-
-/* static void	ft_rrotate_job(t_list *stack)
-{
-	int	i;
-
-	i = ft_lstsize(stack);
-	while (--i > 0)
-		ft_rotate_job(stack);
-} */
 
 static void	ft_rrotate_job(t_list **stack)
 {

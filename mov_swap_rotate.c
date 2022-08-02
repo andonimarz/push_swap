@@ -6,20 +6,11 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:54:15 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/01 12:04:15 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/02 09:10:58 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* void	ft_swap_job(t_list *stack)
-{
-	int		aux;
-
-	aux = stack->content;
-	stack->content = stack->next->content;
-	stack->next->content = aux;
-} */
 
 void	ft_swap_job(t_list **stack)
 {
@@ -50,15 +41,6 @@ void	ft_swap(t_control *control, char c)
 		ft_swap_job(&control->stack_b);
 	}
 }
-
-/* void	ft_rotate_job(t_list *stack)
-{
-	while (stack->next)
-	{
-		ft_swap_job(&stack);
-		stack = stack->next;
-	}
-} */
 
 static void	ft_rotate_job(t_list **stack)
 {
