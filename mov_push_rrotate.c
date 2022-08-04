@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:56:03 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/02 09:10:32 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/04 12:06:52 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_push(t_control *control, char c)
 		control->a_size++;
 		control->b_size--;
 	}
+	control->total_moves++;
 }
 
 static void	ft_rrotate_job(t_list **stack)
@@ -66,4 +67,5 @@ void	ft_rrotate(t_control *control, char c)
 		ft_rrotate_job(&control->stack_a);
 		ft_rrotate_job(&control->stack_b);
 	}
+	control->total_moves++;
 }

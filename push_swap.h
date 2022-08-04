@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/04 10:34:22 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/04 12:52:30 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,15 @@ typedef struct s_control
 	int				a_moves;
 	struct s_list	*stack_b;
 	int				b_size;
-	int				b_moves;
 	int				error;
 	int				index_count;
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
+	int				total_moves;
 }					t_control;
 
 /*-----------	utils_libft	-----------*/
@@ -66,8 +72,8 @@ void	ft_count_b_moves(t_control *control);
 void	ft_index(t_control *control);
 
 /*----------	ft_init		-----------*/
-void	ft_init_stack(t_list *stack);
-void	ft_init_values(t_control *control);
+void	ft_init_stack(int mode, t_list *stack);
+void	ft_init_values(int mode, t_control *control);
 
 /*----------	ft_checks	-----------*/
 void	ft_check_error(t_control *control);

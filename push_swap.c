@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/04 10:33:09 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/04 12:56:45 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_list	*ft_get_stack(char **args, t_control *control)
 		ft_lstadd_back(&stack, ft_lstnew(aux));
 		i++;
 	}
-	ft_init_stack(stack);
+	ft_init_stack(0, stack);
 	control->a_size = i;
 	return (stack);
 }
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 	char		**sp_arg;
 	t_control	control;
 
-	ft_init_values(&control);
+	ft_init_values(0, &control);
 	if (argc == 1)
 		control.error = 3;
 	else
