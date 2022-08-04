@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/02 12:50:27 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/04 10:33:09 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_list	*ft_get_stack(char **args, t_control *control)
 		ft_lstadd_back(&stack, ft_lstnew(aux));
 		i++;
 	}
+	ft_init_stack(stack);
 	control->a_size = i;
 	return (stack);
 }
@@ -66,18 +67,6 @@ static void	ft_push_swap(t_control *control)
 		ft_ord_any(control);
 }
 
-static void	ft_init_values(t_control *control)
-{
-	control->stack_a = NULL;
-	control->a_size = 0;
-	control->a_moves = 0;
-	control->stack_b = NULL;
-	control->b_size = 0;
-	control->b_moves = 0;
-	control->error = 0;
-	control->index_count = 1;
-}
-
 int	main(int argc, char **argv)
 {
 	char		**sp_arg;
@@ -100,7 +89,7 @@ int	main(int argc, char **argv)
 	ft_checks(&control);
 	ft_index(&control);
 	ft_push_swap(&control);
-	ft_ctrprint(&control);
+	//ft_ctrprint(&control);
 	ft_free_lst(&control.stack_a);
 	ft_free_lst(&control.stack_b);
 }
