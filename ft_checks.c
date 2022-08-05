@@ -6,13 +6,13 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 10:02:11 by amarzana          #+#    #+#             */
-/*   Updated: 2022/07/29 11:42:17 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:25:20 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_error(t_control *control)
+static void	ft_check_error(t_control *control)
 {
 	if (control->error == 1)
 	{
@@ -29,7 +29,7 @@ void	ft_check_error(t_control *control)
 		exit(0);
 }
 
-void	ft_check_dupl(t_control *control)
+static void	ft_check_dupl(t_control *control)
 {
 	t_list	*aux;
 	t_list	*stack;
@@ -58,7 +58,7 @@ void	ft_check_dupl(t_control *control)
 	}
 }
 
-int	ft_check_order(int work_type, t_control *control)
+int	ft_check_order(int mode, t_control *control)
 {
 	int		i;
 	t_list	*stack;
@@ -71,9 +71,27 @@ int	ft_check_order(int work_type, t_control *control)
 			i++;
 		stack = stack->next;
 	}
-	if (work_type == 0 && i == 0 && control->error == 0)
+	if (mode == 0 && i == 0 && control->error == 0)
 		control->error = 2;
-	if (work_type == 1 && i == 0)
+	if (mode == 1 && i == 0)
 		return (0);
 	return (1);
+}
+
+void	ft_checks(t_control *control)
+{
+	int		i;
+
+	if (control->error == 0)
+	{
+		i = ft_lstsize(control->stack_a);
+		if (i == 0)
+			control->error = 3;
+		else if (i > 0)
+		{
+			ft_check_dupl(control);
+			ft_check_order(0, control);
+		}
+	}
+	ft_check_error(control);
 }

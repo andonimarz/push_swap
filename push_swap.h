@@ -6,7 +6,7 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/04 12:52:30 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:25:48 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,8 @@ void	ft_init_stack(int mode, t_list *stack);
 void	ft_init_values(int mode, t_control *control);
 
 /*----------	ft_checks	-----------*/
-void	ft_check_error(t_control *control);
-void	ft_check_dupl(t_control *control);
-int		ft_check_order(int work_type, t_control *control);
+void	ft_checks(t_control *control);
+int		ft_check_order(int mode, t_control *control);
 
 /*----------	ft_ords		-----------*/
 void	ft_ord_three(t_control *control);
@@ -90,8 +89,5 @@ void	ft_swap(t_control *control, char c);
 void	ft_rotate(t_control *control, char c);
 void	ft_rrotate(t_control *control, char c);
 void	ft_push(t_control *control, char c);
-
-/*----------BORRRARARRARARARAR---------*/
-void	ft_ctrprint(t_control *control);
 
 #endif

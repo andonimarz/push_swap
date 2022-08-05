@@ -6,18 +6,11 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:15:48 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/04 12:56:45 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:25:53 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/**************SHITTTTTTTTTTTT***************
- * 
- * Falta la función que hace los movimientos antes del push
- * Falta borrar las variables de movimiento después de cada push
- * 
-**************SHITTTTTTTTTTTT***************/
 
 t_list	*ft_get_stack(char **args, t_control *control)
 {
@@ -37,24 +30,6 @@ t_list	*ft_get_stack(char **args, t_control *control)
 	ft_init_stack(0, stack);
 	control->a_size = i;
 	return (stack);
-}
-
-static void	ft_checks(t_control *control)
-{
-	int		i;
-
-	if (control->error == 0)
-	{
-		i = ft_lstsize(control->stack_a);
-		if (i == 0)
-			control->error = 3;
-		else if (i > 0)
-		{
-			ft_check_dupl(control);
-			ft_check_order(0, control);
-		}
-	}
-	ft_check_error(control);
 }
 
 static void	ft_push_swap(t_control *control)
@@ -89,7 +64,6 @@ int	main(int argc, char **argv)
 	ft_checks(&control);
 	ft_index(&control);
 	ft_push_swap(&control);
-	//ft_ctrprint(&control);
 	ft_free_lst(&control.stack_a);
 	ft_free_lst(&control.stack_b);
 }
