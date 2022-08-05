@@ -6,16 +6,12 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 09:40:35 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/05 09:25:48 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:48:44 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
 
 typedef struct s_list
 {

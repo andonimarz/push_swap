@@ -6,11 +6,12 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:56:03 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/04 12:06:52 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:50:19 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 
 void	ft_push(t_control *control, char c)
 {

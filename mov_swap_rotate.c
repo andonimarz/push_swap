@@ -6,11 +6,12 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:54:15 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/04 12:07:29 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:50:10 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 
 void	ft_swap_job(t_list **stack)
 {

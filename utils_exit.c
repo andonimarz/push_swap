@@ -6,11 +6,12 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:00:41 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/02 12:05:20 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:51:07 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
 void	ft_free_lst(t_list **lst)
 {

@@ -6,11 +6,13 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 10:02:11 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/05 09:25:20 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:52:53 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 static void	ft_check_error(t_control *control)
 {

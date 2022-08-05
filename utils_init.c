@@ -6,11 +6,12 @@
 /*   By: amarzana <amarzana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 10:31:57 by amarzana          #+#    #+#             */
-/*   Updated: 2022/08/04 12:53:46 by amarzana         ###   ########.fr       */
+/*   Updated: 2022/08/05 09:52:04 by amarzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
 void	ft_init_values(int mode, t_control *control)
 {
